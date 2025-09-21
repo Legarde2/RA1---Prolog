@@ -11,7 +11,7 @@ trilha(redes_e_infraestrutura, 'Gerenciamento de conexões entre redes e servido
 
 % Ciência de Dados
 perfil(ciencia_de_dados, matematica_estatistica, 5).
-perfil(ciencia_de_dados, programacao_em_python, 4).
+perfil(ciencia_de_dados, programacao_python, 4).
 perfil(ciencia_de_dados, resolucao_de_problemas, 3).
 perfil(ciencia_de_dados, comunicacao, 2).
 
@@ -25,7 +25,7 @@ perfil(desenvolvimento_web, trabalho_em_equipe, 2).
 perfil(inteligencia_artificial, logica_programacao, 5).
 perfil(inteligencia_artificial, matematica_estatistica, 4).
 perfil(inteligencia_artificial, pesquisa, 2).
-perfil(inteligencia_artificial, resolucao_de_problema, 3).
+perfil(inteligencia_artificial, resolucao_de_problemas, 3).
 
 % Segurança da Informação
 perfil(seguranca_da_informacao, resolucao_de_problemas, 2).
