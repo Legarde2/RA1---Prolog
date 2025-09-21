@@ -9,13 +9,16 @@ iniciar :-
     exibe_resultado(Resultados).
 
 faz_perguntas :-
-    pergunta(Id, Texto, _),
-    format('~w (s/n): ', [Texto]),
-    read(Resp),
-    (Resp == s ; Resp == n),
-    assertz(resposta(Id, Resp)),
-    fail.
-faz_perguntas.
+    forall(
+        pergunta(Id, Texto, _),
+        (
+            repeat,
+                format('~w (s/n): ', [Texto]),
+                read(Resp),
+                (Resp == s ; Resp == n), !,
+            assertz(resposta(Id, Resp))
+        )
+    ).
 
 
 exibe_resultado(Resultados) :-
