@@ -25,7 +25,7 @@ perfil(desenvolvimento_web, trabalho_em_equipe, 2).
 perfil(inteligencia_artificial, logica_programacao, 5).
 perfil(inteligencia_artificial, matematica_estatistica, 4).
 perfil(inteligencia_artificial, pesquisa, 2).
-perfil(inteligencia_artificial, , 3).
+perfil(inteligencia_artificial, resolucao_de_problema, 3).
 
 % Segurança da Informação
 perfil(seguranca_da_informacao, resolucao_de_problemas, 2).
@@ -37,14 +37,14 @@ perfil(seguranca_da_informacao, investigacao, 3).
 perfil(redes_e_infraestrutura, hardware, 4).
 perfil(redes_e_infraestrutura, administracao_de_sistemas, 5).
 perfil(redes_e_infraestrutura, trabalho_em_equipe, 3).
-perfil(redes_e_infraestrutura, resolucao_problemas, 2).
+perfil(redes_e_infraestrutura, resolucao_de_problemas, 2).
 
 % Perguntas (Id, Texto, Caracteristica)
 % ==========================================================
 
 pergunta(1, 'Você tem afinidade com matemática e estatística?', matematica_estatistica).
 pergunta(2, 'Você programa ou gostaria de programar em Python?', programacao_python).
-pergunta(3, 'Você gosta de resolver problemas práticos do dia a dia?', resolucao_problemas).
+pergunta(3, 'Você gosta de resolver problemas práticos do dia a dia?', resolucao_de_problemas).
 pergunta(4, 'Você gosta de se comunicar e apresentar ideias?', comunicacao).
 
 pergunta(5, 'Você gosta de desenvolver interfaces bonitas e usáveis?', design_visual).
@@ -55,8 +55,8 @@ pergunta(8, 'Você gosta de trabalhar em equipe em projetos de tecnologia?', tra
 pergunta(9, 'Você gosta de resolver problemas usando lógica e programação?', logica_programacao).
 pergunta(10, 'Você gosta de pesquisar novas soluções para o mercado de I.A?', pesquisa).
 
-pergunta(12, 'Você gosta de investigar problemas de forma crítica?', pensamento_critico).
-pergunta(13, 'Você gosta de gerenciar servidores e redes?', administracao_sistemas).
-pergunta(14, 'Você gosta de investigar falhas de segurança em sistemas?', investigacao).
+pergunta(11, 'Você gosta de investigar problemas de forma crítica?', pensamento_critico).
+pergunta(12, 'Você gosta de gerenciar servidores e redes?', administracao_de_sistemas).
+pergunta(13, 'Você gosta de investigar falhas de segurança em sistemas?', investigacao).
 
-pergunta(15, 'Você tem interesse em hardware e infraestrutura física?', hardware).
+pergunta(14, 'Você tem interesse em hardware e infraestrutura física?', hardware).
