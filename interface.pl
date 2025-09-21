@@ -6,7 +6,8 @@ iniciar :-
     writeln(''),
     faz_perguntas,
     recomenda(Resultados),
-    exibe_resultado(Resultados).
+    exibe_resultado(Resultados),
+    !.
 
 faz_perguntas :-
     forall(
@@ -24,7 +25,7 @@ faz_perguntas :-
 exibe_resultado(Resultados) :-
     writeln('\n--- Recomendações de Trilhas ---'),
     forall(
-        member((Trilha, Pontuacao), Resultados),
+        member((Pontuacao-Trilha), Resultados),
         (trilha(Trilha, Descricao),
          format('~w (~w pontos): ~w~n', [Trilha, Pontuacao, Descricao]))
     ).
