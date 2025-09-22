@@ -24,17 +24,42 @@ faz_perguntas :-
     ).
 
 % Modo para ler arquivo teste
-rodar_teste(ArquivoTeste) :-
+rodar_teste(NumeroDoTeste) :-
     writeln('--- Iniciando modo de teste ---'),
-    format('Carregando respostas do arquivo: ~w~n', [ArquivoTeste]),
+    format('Carregando respostas do Teste #~w~n', [NumeroDoTeste]),
     % Limpa respostas anteriores da memória
     retractall(resposta(_, _)),
-    % Carrega as respostas do arquivo de teste
-    consult(ArquivoTeste),
+    % Carrega as respostas do teste integrado ao código
+    carregar_respostas_teste(NumeroDoTeste),
     writeln('Respostas carregadas. Calculando recomendações...'),
     recomenda(Resultados),
     exibe_resultado(Resultados),
     !.
+
+% RESPOSTAS DOS ARQUIVOS DE TESTE
+carregar_respostas_teste(1) :-
+    % Perfil: Aluno com forte inclinação para matemática, lógica e dados.
+    assertz(resposta(1, s)),  assertz(resposta(2, s)),  assertz(resposta(3, s)),
+    assertz(resposta(4, n)),  assertz(resposta(5, n)),  assertz(resposta(6, n)),
+    assertz(resposta(7, n)),  assertz(resposta(8, n)),  assertz(resposta(9, s)),
+    assertz(resposta(10, s)), assertz(resposta(11, s)), assertz(resposta(12, n)),
+    assertz(resposta(13, n)), assertz(resposta(14, n)).
+
+carregar_respostas_teste(2) :-
+    % Perfil: Aluno com forte interesse na criação de aplicações web, design e trabalho em equipe.
+    assertz(resposta(1, n)),  assertz(resposta(2, n)),  assertz(resposta(3, s)),
+    assertz(resposta(4, s)),  assertz(resposta(5, s)),  assertz(resposta(6, s)),
+    assertz(resposta(7, s)),  assertz(resposta(8, s)),  assertz(resposta(9, n)),
+    assertz(resposta(10, n)), assertz(resposta(11, n)), assertz(resposta(12, n)),
+    assertz(resposta(13, n)), assertz(resposta(14, n)).
+
+carregar_respostas_teste(3) :-
+    % Perfil: Aluno com interesse em pensamento crítico, investigação e administração de sistemas.
+    assertz(resposta(1, n)),  assertz(resposta(2, n)),  assertz(resposta(3, s)),
+    assertz(resposta(4, n)),  assertz(resposta(5, n)),  assertz(resposta(6, n)),
+    assertz(resposta(7, n)),  assertz(resposta(8, s)),  assertz(resposta(9, n)),
+    assertz(resposta(10, n)), assertz(resposta(11, s)), assertz(resposta(12, s)),
+    assertz(resposta(13, s)), assertz(resposta(14, s)).
 
 %  EXIBIÇÃO DE RESULTADOS E JUSTIFICATIVAS 
 exibe_resultado(Resultados) :-
