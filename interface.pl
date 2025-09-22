@@ -1,5 +1,3 @@
-:- [base_conhecimento, 'MotorInferencia']. % Carrega os codigos anteriores
-
 :- dynamic resposta/2.
 
 % Modo Interativo
