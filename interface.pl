@@ -27,9 +27,9 @@ faz_perguntas :-
 rodar_teste(NumeroDoTeste) :-
     writeln('--- Iniciando modo de teste ---'),
     format('Carregando respostas do Teste #~w~n', [NumeroDoTeste]),
-    % Limpa respostas anteriores da memória
+    % limpa respostas anteriores da memória
     retractall(resposta(_, _)),
-    % Carrega as respostas do teste integrado ao código
+    % Carrega as respostas do teste em questão
     carregar_respostas_teste(NumeroDoTeste),
     writeln('Respostas carregadas. Calculando recomendações...'),
     recomenda(Resultados),
@@ -69,22 +69,32 @@ exibe_resultado(Resultados) :-
         (
             trilha(Trilha, Descricao),
             format('~w (~w pontos): ~w~n', [Trilha, Pontuacao, Descricao]),
-            exibe_justificativa(Trilha), 
+            exibir_justificativa(Trilha), 
             writeln('')
         )
     ).
-
-% Predicado pra justificar a recomendação
-exibe_justificativa(Trilha) :-
-    write('   -> Justificativa: Pontos obtidos por afinidade com '),
+% Predicado pra justificar a recomendação da trilha
+exibir_justificativa(Trilha) :-
+    % percore e pega todas as afinidades e seus pesos
     findall(
-        Caracteristica,
-        (perfil(Trilha, Caracteristica, _), pergunta(ID, _, Caracteristica), resposta(ID, s)),
+        Peso-Caracteristica,
+        (
+            perfil(Trilha, Caracteristica, Peso),
+            pergunta(ID, _, Caracteristica),
+            resposta(ID, s)
+        ),
         ListaDeAfinidades
     ),
-    ( ListaDeAfinidades = [] ->
-        write('nenhuma característica específica respondida com "sim".')
+    
+    ( ListaDeAfinidades \= [] ->
+        %Ordena a lista do menor pro maior peso
+        keysort(ListaDeAfinidades, ListaOrdenadaAsc),
+        
+        %Inverte a lista para pegar o maior peso primeiro
+        reverse(ListaOrdenadaAsc, [MaiorPeso-PrincipalCaracteristica | _]),
+        
+        %Exibe a  justificativa
+        format('   -> Principal motivo: Sua forte afinidade com ~w (~w pts).', [PrincipalCaracteristica, MaiorPeso])
     ;
-        atomic_list_concat(ListaDeAfinidades, ', ', AfinidadesString),
-        write(AfinidadesString), write('.')
+        true
     ).
